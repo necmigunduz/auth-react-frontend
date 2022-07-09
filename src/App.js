@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Col, Row } from "react-bootstrap";
+import Signup from "./Signup";
+import Login from "./Login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <Signup />
+        </Col>
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <Login />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
