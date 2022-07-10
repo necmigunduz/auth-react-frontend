@@ -8,6 +8,7 @@ function Signup() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [signup, setSignup] = useState(false);
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +25,8 @@ function Signup() {
     axios(configuration)
         .then((response) => {
           setSignup(true);
-          console.log(response)
+          console.log(response);
+          setMessage(response.data.message);
         })
         .catch((error) => {
           error = new Error();
@@ -81,7 +83,7 @@ function Signup() {
         </Button>
       </Form>
       <div style={{marginTop: "20px"}}>
-        {signup ? <p className="text-success">You signed up successfully!</p> : <p className="text-danger">You are not signed up!</p>}
+        {signup ? <p className="text-success">{message}</p> : <p className="text-danger">You are not signed up!</p>}
       </div>
     </>
   );

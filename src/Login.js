@@ -6,6 +6,7 @@ function Login() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
+  const [message, setMessage] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
     const configuration = {
@@ -20,6 +21,7 @@ function Login() {
       .then((response) => {
         setLogin(true);
         console.log(response);
+        setMessage(response.data.message)
       })
       .catch((error) => {
         error = new Error();
@@ -64,7 +66,7 @@ function Login() {
       </Form>
       <div style={{ marginTop: "20px" }}>
         {login ? (
-          <p className="text-success">You logged in successfully!</p>
+          <p className="text-success">{message}</p>
         ) : (
           <p className="text-danger">
             You are not logged in!
