@@ -36,7 +36,7 @@ function Signup() {
     <>
       <h2 style={{ marginTop: "50px", fontWeight: "900" }}>Signup</h2>
       <Form className="bg-light p-3 border rounded" onSubmit={(e) => handleSubmit(e)}>
-        <Form.Group controlId="username">
+        <Form.Group controlId="username-signup">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
@@ -46,7 +46,7 @@ function Signup() {
             onChange={(e)=> setUsername(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="email">
+        <Form.Group controlId="email-signup">
           <Form.Label>Email adress</Form.Label>
           <Form.Control
             type="email"
@@ -56,7 +56,7 @@ function Signup() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="phone">
+        <Form.Group controlId="phone-signup">
           <Form.Label>Phone number</Form.Label>
           <Form.Control
             type="number"
@@ -66,7 +66,7 @@ function Signup() {
             onChange={(e) => setPhone(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="password">
+        <Form.Group controlId="password-signup">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
