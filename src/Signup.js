@@ -1,60 +1,78 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [signup, setSignup] = useState(false);
 
   const handleSubmit = (e) => {
-    // prevent the form from refreshing the whole page
     e.preventDefault();
-    // make a popup alert showing the "submitted" text
-    alert("Submited");
+    const configuration = {
+      method: "post",
+      url: "https://auth-node-backend.herokuapp.com/signup",
+      data: {
+        username,
+        email,
+        phone,
+        password
+      },
+    };
+    axios(configuration)
+        .then((response) => {
+          setSignup(true);
+          console.log(response)
+        })
+        .catch((error) => {
+          error = new Error();
+          console.log(error)
+        })
   };
-  
+
   return (
     <>
       <h2 style={{ marginTop: "50px", fontWeight: "900" }}>Signup</h2>
       <Form onSubmit={(e) => handleSubmit(e)}>
-        <Form.Group controlId="formBasicUsername">
+        <Form.Group controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter your username"
             name="username"
-            value="username"
+            value={username}
             onChange={(e)=> setUsername(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="email">
           <Form.Label>Email adress</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter your email adress"
             name="email"
-            value="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="formBasicPhone">
+        <Form.Group controlId="phone">
           <Form.Label>Phone number</Form.Label>
           <Form.Control
             type="number"
             placeholder="Enter your phone number"
             name="phone"
-            value="phone"
+            value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
             name="password"
-            value="password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
@@ -62,6 +80,9 @@ function Signup() {
           Submit
         </Button>
       </Form>
+      <div style={{marginTop: "20px"}}>
+        {signup ? <p className="text-success">You signed up successfully!</p> : <p className="text-success">You are not signed up!</p>}
+      </div>
     </>
   );
 }
