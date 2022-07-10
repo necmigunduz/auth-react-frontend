@@ -35,7 +35,7 @@ function Signup() {
   return (
     <>
       <h2 style={{ marginTop: "50px", fontWeight: "900" }}>Signup</h2>
-      <Form onSubmit={(e) => handleSubmit(e)}>
+      <Form className="bg-light p-3 border rounded" onSubmit={(e) => handleSubmit(e)}>
         <Form.Group controlId="username">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -81,7 +81,7 @@ function Signup() {
         </Button>
       </Form>
       <div style={{marginTop: "20px"}}>
-        {signup ? <p className="text-success">You signed up successfully!</p> : <p className="text-success">You are not signed up!</p>}
+        {signup ? <p className="text-success">You signed up successfully!</p> : <p className="text-danger">You are not signed up!</p>}
       </div>
     </>
   );
