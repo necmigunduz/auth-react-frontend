@@ -14,7 +14,7 @@ function Signup() {
     e.preventDefault();
     const configuration = {
       method: "post",
-      url: "https://auth-node-backend.herokuapp.com/signup",
+      url: "http://localhost:8080/signup",
       data: {
         username,
         email,

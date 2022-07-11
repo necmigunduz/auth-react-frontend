@@ -11,7 +11,7 @@ function Login() {
     e.preventDefault();
     const configuration = {
       method: "post",
-      url: "https://auth-node-backend.herokuapp.com/login",
+      url: "http://localhost:8080/login",
       data: {
         phone,
         password,
