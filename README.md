@@ -2,7 +2,7 @@
 
 This is an authentication project using ReactJS and NodeJS. MongoDB is used to store the data of users signed up.
 
-![screenshot](https://github.com/necmigunduz/konusarak-ogren/blob/master/Screenshot.png)
+![screenshot](https://github.com/necmigunduz/auth-react-frontend/blob/master/Screenshot.png)
 
 ## Built With
 
