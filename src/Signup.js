@@ -25,8 +25,12 @@ function Signup() {
     axios(configuration)
         .then((response) => {
           setSignup(true);
-          console.log(response);
-          setMessage(response.data.message);
+          console.log(response.data.result);
+          if(response.data.result.status == "Pending") {
+            setMessage("Pending account, please verify your account!");
+          } else {
+            setMessage("Account is verified!")
+          }
         })
         .catch((error) => {
           error = new Error();
